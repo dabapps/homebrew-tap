@@ -9,5 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Brew
-      run: brew --help
+    - name: Install custom tap
+      run: |
+        mkdir -p /usr/local/Homebrew/Library/Taps/$GITHUB_REPOSITORY
+        cp -r * /usr/local/Homebrew/Library/Taps/$GITHUB_REPOSITORY/
+    - name: Check tap installed
+      run: brew tap
