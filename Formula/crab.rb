@@ -3,8 +3,8 @@ class Crab < Formula
 
   desc "Crab"
   homepage "https://github.com/dabapps/crab"
-  url "https://github.com/dabapps/crab/archive/v0.1.4.tar.gz"
-  sha256 "6136ff283c28595a793bd49b669a6134e7bc395185a101d8ea0a024dada6d48a"
+  url "https://github.com/dabapps/crab/archive/v0.1.5.tar.gz"
+  sha256 "fdac36fe63a0a822e44c14dbd08e7b64106317fadeb31239531491772a0b36bc"
   head "https://github.com/dabapps/crab.git"
 
   depends_on "python@3"
