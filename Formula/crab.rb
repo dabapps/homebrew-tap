@@ -10,7 +10,7 @@ class Crab < Formula
   depends_on "python@3"
 
   def install
-    venv  = virtualenv_create(libexec, "python3")
+    venv  = virtualenv_create(libexec, "python3", without_pip: false)
     system libexec/"bin/pip", "install", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "crabtools"
     venv.pip_install_and_link buildpath
