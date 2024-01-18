@@ -44,6 +44,10 @@ class Crab < Formula
     EOS
   end
 
+  service do
+    name macos: "#{plist_name}"
+  end
+
   test do
     assert_match "crab v#{version}", shell_output("#{bin}/crab --version")
     assert_match "crab v#{version}", shell_output("#{bin}/crab")
