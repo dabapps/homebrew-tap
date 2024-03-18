@@ -7,7 +7,7 @@ class Crab < Formula
   sha256 "fdac36fe63a0a822e44c14dbd08e7b64106317fadeb31239531491772a0b36bc"
   head "https://github.com/dabapps/crab.git"
 
-  depends_on "python@3"
+  depends_on "python@3.11"
 
   def install
     venv  = virtualenv_create(libexec, "python3", without_pip: false)
