@@ -16,36 +16,12 @@ class Crab < Formula
     venv.pip_install_and_link buildpath
   end
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{bin}/crab</string>
-          <string>router</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/crab.log</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/crab.log</string>
-      </dict>
-      </plist>
-    EOS
-  end
-
   service do
-    name macos: "#{plist_name}"
+    run [bin/"crab", "router"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"log/crab.log"
+    error_log_path var/"log/crab.log"
   end
 
   test do
